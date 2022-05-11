@@ -7,7 +7,7 @@ Before writing the code, you have to create an Azure Redis Cache in the Azure Po
 ## Implementation
 In `Program.cs` or `Startup.cs`, where you register your services for the Presentation/UI layer. Here we use my code from [joerivanarkel/.ConnectionString.md](https://gist.github.com/joerivanarkel/d5e11169d9a638678646f945d76a3989) to hide the connection string in dotnet secrets.
 
-```dotnet
+```csharp
 builder.Services.AddDistributedRedisCache(option =>
 {
     option.Configuration = DatabaseConnection<Program>.GetSecret("RedisConnection");
@@ -19,7 +19,7 @@ In the Data Access class i try to get the list from the Redis Cache. Then i chec
 
 If it is empty, i get the data from the Database. Then i cache the data by serializing the Data in Json format.
 
-```dotnet
+```csharp
 var cachedList = _cache.GetString("Model");
 if ((cachedPersonList != "[]"))
 {
