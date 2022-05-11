@@ -16,7 +16,7 @@ builder.Services.AddDistributedRedisCache(option =>
 
 In the Data Access class i try to get the list from the Redis Cache. Then i check if the result is null or empty by checking for the `"[]"` value. If not i deserialize the Json and return the list, using the `Newtonsoft.Json` NuGet package, but their are other possibilities. 
 
-When it is empty, i get the data from the Database. Then i cache the data by serializing the Data in Json format.
+If it is empty, i get the data from the Database. Then i cache the data by serializing the Data in Json format.
 
 ```dotnet
 var cachedList = _cache.GetString("Model");
