@@ -1,5 +1,5 @@
 # Azure Redis Cache
-This is an example of implementing an Azure Redis Cache in C3. It is written following the Clean Architecture, from my template from [vanarkel/Clean-Architecture-Example](https://github.com/vanarkel/Clean-Architecture-Example) and it is using the `Microsoft.Extensions.Caching.Redis` NuGet package.
+This is an example of implementing an Azure Redis Cache in C#. It is written following the Clean Architecture, from my template from [vanarkel/Clean-Architecture-Example](https://github.com/vanarkel/Clean-Architecture-Example) and it is using the `Microsoft.Extensions.Caching.Redis` NuGet package.
 
 Before writing the code, you have to create an Azure Redis Cache in the Azure Portal. It is handy that you save the connectionstring right now, as you'll use it later.
 
