@@ -1,0 +1,49 @@
+﻿@page "/fetchdata"
+
+<PageTitle>Weather forecast</PageTitle>
+
+@using Application.Persons
+@using Presentation.Services
+@using Services
+
+@inject IPersonService personService
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (persons == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Age</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in persons)
+            {
+                <tr>
+                    <td>@person.Age</td>
+                    <td>@person.Name</td>
+                    <td>@person.Surname</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<PersonModel>  persons;
+
+    protected override async Task OnInitializedAsync()
+    {
+        persons = await personService.GetAllAsync();
+    }
+}
