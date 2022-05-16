@@ -1,3 +1,5 @@
+[← Return to AZ-204](README.md)<br>
+
 [![.NET](https://github.com/joerivanarkel/AzureRedisCache/actions/workflows/dotnet.yml/badge.svg)](https://github.com/joerivanarkel/AzureRedisCache/actions/workflows/dotnet.yml)
 # Azure Redis Cache
 This is an example of implementing an Azure Redis Cache in C#. It is written following the Clean Architecture, from my template from [vanarkel/Clean-Architecture-Example](https://github.com/vanarkel/Clean-Architecture-Example) and it is using the `Microsoft.Extensions.Caching.Redis` NuGet package.
