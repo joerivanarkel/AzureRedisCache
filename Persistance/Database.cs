@@ -1,7 +1,7 @@
 ﻿using Application;
-using Common;
 using Domain.Persons;
 using Microsoft.EntityFrameworkCore;
+using UserSecrets;
 
 namespace Persistance;
 
@@ -11,6 +11,6 @@ public class Database : DbContext, IDatabase
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(DatabaseConnection<Database>.GetSecret("sqlconnectionstring"));
+        optionsBuilder.UseSqlServer(UserSecrets<Database>.GetSecret("sqlconnectionstring"));
     }
 }

@@ -1,10 +1,10 @@
 using Application;
 using Application.Persons;
-using Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Persistance;
 using Presentation.Services;
+using UserSecrets;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +18,8 @@ builder.Services.AddTransient<IPersonService, PersonService>();
 builder.Services.AddDbContext<IDatabase, Database>();
 builder.Services.AddDistributedRedisCache(option =>
 {
-    var RedisConnectionString = DatabaseConnection<Program>.GetSecret("redisconnectionstring");
-    option.Configuration = DatabaseConnection<Program>.GetSecret("redisconnectionstring");
+    var RedisConnectionString = UserSecrets<Program>.GetSecret("redisconnectionstring");
+    option.Configuration = UserSecrets<Program>.GetSecret("redisconnectionstring");
     option.InstanceName = "master";
 });
 
